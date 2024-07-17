@@ -11,6 +11,7 @@
 * [Intro to Quarto] by Isabella Velásquez for R-Ladies St. Louis
 * [Awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 * [Building a Website in R](https://www.youtube.com/watch?v=ZTyKEmCyYiI) by Federica Gazzelloni for R-Ladies New York
+* [Create Your Data Science Portfolio with Quarto](https://www.youtube.com/watch?v=xtSFXtDf4cM) by Deepsha Menghani for Posit Enterprise Community Meetup
 * [Building a blog with Quarto](https://www.youtube.com/watch?v=CVcvXfRyfE0) by Isabella Velásquez for RStudio Enterprise Meetup
 * [Styling and Templating Quarto Documents - posit::conf(2023)](https://www.youtube.com/watch?v=CblUFMoC9yg) by Emil Hvitfeldt
 
