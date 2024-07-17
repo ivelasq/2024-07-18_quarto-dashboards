@@ -15,7 +15,7 @@ format:
     title-slide-attributes: 
       data-background-image: images/title.png
       data-background-color: "black"
-    footer: "https://github.com/ivelasq/2024-07-18_quarto-dashboards"
+    footer: "https://bit.ly/quarto-dashboards"
 knitr: 
   opts_chunk: 
     fig.align: center
@@ -328,7 +328,7 @@ plot(mtcars$mpg)
 :::
 
 
-::: {.column width="60%"}
+::: {.column width="60%" .fragment}
 ![](images/dashboard-example2.png)
 :::
 ::::
@@ -359,7 +359,7 @@ plot(mtcars$mpg)
 ````
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%"  .fragment}
 ![](images/dashboard-example3.png)
 :::
 
@@ -465,7 +465,7 @@ plot(mtcars$mpg)
 ````
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%"  .fragment}
 ![](images/dashboard-example4.png)
 :::
 
@@ -566,7 +566,7 @@ plot(mtcars$mpg)
 ````
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%"  .fragment}
 ![](images/dashboard-example5.png)
 :::
 
@@ -611,7 +611,7 @@ plot(mtcars$hp)
 ````
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%"  .fragment}
 ![](images/dashboard-example6.png)
 :::
 
@@ -660,7 +660,7 @@ plot(mtcars)
 ````
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%"  .fragment}
 ![](images/dashboard-example7.png)
 :::
 
@@ -761,7 +761,7 @@ plot(mtcars$hp)
 
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%"  .fragment}
 ![](images/dashboard-example9.gif)
 :::
 
@@ -1065,7 +1065,7 @@ plot(mtcars$mpg)
 
 ::: {.column width="40%"}
 
-````{.yaml filename="dashboard.qmd"}
+````{.yaml filename="dashboard.qmd" code-line-numbers=14-24}
 ---
 title: "My first Quarto dashboard"
 format: dashboard
@@ -1420,7 +1420,7 @@ output$variablePlot <- renderPlot({
 :::
 
 ::: {.column width="60%"}
-![](images/shiny-example.png)
+![](images/shiny-example.gif)
 :::
 
 ::::

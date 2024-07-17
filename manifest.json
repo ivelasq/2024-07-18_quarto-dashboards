@@ -818,10 +818,10 @@
       "checksum": "6276733e77ac861b0bc8f052e6ea90c0"
     },
     "images/car.png": {
-      "checksum": "ccc38c8ee3a068ad5c563c9fccab8f12"
+      "checksum": "2a0d56d50999c4d259ae99939089a08f"
     },
     "images/custom.png": {
-      "checksum": "ed9cc713cdb4c3969a7074c994e9f513"
+      "checksum": "a4c8bd82170612dd78b5705b473f8bfe"
     },
     "images/dashboard-example1.png": {
       "checksum": "21f148e53b195aad423a05ef072bad21"
@@ -863,19 +863,19 @@
       "checksum": "3c0feeaafbb17b5bfe69d7607a4da5bd"
     },
     "images/interactivity-options.png": {
-      "checksum": "5cfd8e412d3dc8fd2e17871afa94fd80"
+      "checksum": "4469b847c1c08fcf0f2153a2dc0fe043"
     },
     "images/intro.png": {
-      "checksum": "7081078c89e4b27b7ab0d7ca1fa86e89"
+      "checksum": "6537d39eff72c0aa984d06f2a55e42bc"
     },
     "images/knitr-plot.png": {
       "checksum": "dd4ed8fbf4cda3fc9b481ee655b12afd"
     },
     "images/navbar.png": {
-      "checksum": "18b1dde6659ee3005a4a8749fdbf235e"
+      "checksum": "62cd32043da33bb5d87a48b9ba6f5e6d"
     },
     "images/noninteractive-dashboard.png": {
-      "checksum": "dc0ea4f69ada92a11aad4e44f68e798b"
+      "checksum": "39b5affa75ef4944e790295e55709196"
     },
     "images/presentation.png": {
       "checksum": "e630355c6272dc440d1954dd9de2963f"
@@ -893,40 +893,40 @@
       "checksum": "6a9a92b2643875fa93ba7cb49dc027b2"
     },
     "images/quartoorshiny.png": {
-      "checksum": "8aa2730c73b8a34e980e38c2bc23ce38"
+      "checksum": "aababfc021b67a3cca961a44d0b38659"
     },
     "images/shiny-example.gif": {
       "checksum": "9351b76c372781bda31f5000e1cc924c"
     },
     "images/shiny-example.png": {
-      "checksum": "f1b567684ea6a2f35128e0be8baf4e16"
+      "checksum": "c53d8694c779e65a01dc246885584d24"
     },
     "images/sidebar.png": {
-      "checksum": "dda07e46316d00b1488c3694d39d89d6"
+      "checksum": "857dd858589cd80bb27c36db9020d472"
     },
     "images/tables.png": {
-      "checksum": "0367c0d61c4957324380d0f28e238661"
+      "checksum": "7b04cdfaad823499078f2f3305ce0e50"
     },
     "images/template.png": {
-      "checksum": "a108b5ef814080480f3792a2b729a5cc"
+      "checksum": "8d45f3fc6f083cb4fc0f7d2779a371b3"
     },
     "images/title.png": {
       "checksum": "e604afc79bd5297f71c413eea46295aa"
     },
     "images/united.png": {
-      "checksum": "0af08fbe760d1914ae4405bdd9b56b8c"
+      "checksum": "46d8467f58c8b2dbfec627a2ea48b364"
     },
     "images/value-boxes.png": {
-      "checksum": "cb1a224eeff1f4e9644372613d0bbef7"
+      "checksum": "60b1ba41a2feaaa774531fe5e8140054"
     },
     "images/website.png": {
       "checksum": "e995d1d0bd1b75a2ff4dbe05e9b738e3"
     },
     "index_files/figure-revealjs/unnamed-chunk-1-1.png": {
-      "checksum": "c681a51d464d7739609987d8b1c5773d"
+      "checksum": "210244757265cc8c6193a9c1691d0685"
     },
     "index_files/figure-revealjs/unnamed-chunk-2-1.png": {
-      "checksum": "c681a51d464d7739609987d8b1c5773d"
+      "checksum": "210244757265cc8c6193a9c1691d0685"
     },
     "index_files/libs/clipboard/clipboard.min.js": {
       "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
@@ -1172,13 +1172,13 @@
       "checksum": "dbab999c1a2fe1f31046733759dd1e2b"
     },
     "index.html": {
-      "checksum": "48cf524d64d57d666c061c2ef9eb1d2e"
+      "checksum": "16c623030c3b73a5d01a0d3f7f9e9f7b"
     },
     "index.qmd": {
-      "checksum": "6c15f63fd8870115a94b66589f216767"
+      "checksum": "e3573ff92382ed1e1341657ba4978ed9"
     },
     "README.md": {
-      "checksum": "98f903bf7f416f99d39a7389f5899969"
+      "checksum": "d7203bdcf17857e2be59cf3a6e886d4a"
     },
     "style.scss": {
       "checksum": "1d41840c296dd90b9514f3cdcc34e4b7"
