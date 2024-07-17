@@ -1,0 +1,22 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Baumans&family=Cormorant+Garamond&display=swap');
+
+$presentation-heading-color: #000;
+$code-color: #21409A;
+$link-color: #BE1E2D !default;
+
+/*-- scss:rules --*/
+
+.title {
+  opacity: 0 !important;
+}
+
+img {
+  border: 3px solid #000;
+}
+
+h2  {
+  font-family: "Baumans" !important;
+  text-transform: uppercase  !important;
+ }

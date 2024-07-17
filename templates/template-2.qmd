@@ -1,0 +1,33 @@
+---
+title: "Template 2"
+subtitle: "3 cards on Page 1, 1 card on Page 2"
+logo: logo.png
+format: 
+  dashboard:
+    theme: simplex
+---
+
+
+# Page 1
+
+## Row {height=60%}
+
+![](blank-wide.jpg)
+
+## Row {height=40%}
+
+::: card
+
+![](blank-long.jpg)
+
+:::
+
+::: card
+
+![](blank-long.jpg)
+
+:::
+
+# Page 2
+
+![](blank-wide.jpg)

@@ -1,0 +1,1679 @@
+---
+title: "Quarto Dashboards"
+format:
+  revealjs: 
+    theme: [custom.scss]
+    mainfont: "Cormorant Garamond"
+    filters:
+      - fontawesome
+      - reveal-auto-agenda
+    auto-agenda:
+      bullets: numbered
+    transition: fade
+    background-transition: fade
+    highlight-style: arrow
+    title-slide-attributes: 
+      data-background-image: images/title.png
+      data-background-color: "black"
+    footer: "https://github.com/ivelasq/2024-07-18_quarto-dashboards"
+knitr: 
+  opts_chunk: 
+    fig.align: center
+---
+
+## Hi!
+
+My name is Isabella Velásquez.
+
+![](images/intro.png){fig-align="center" height="300"}
+
+<center>
+{{< fa brands twitter size=1.4xl >}} [ivelasq3](https://x.com/ivelasq3) | {{< fa brands linkedin size=1.4xl >}} [ivelasq](https://www.linkedin.com/in/ivelasq/) | {{< fa brands github size=1.4xl >}} [ivelasq](https://github.com/ivelasq/) | {{< fa browser size=1.4xl >}} [ivelasq.rbind.io](https://ivelasq.rbind.io/)
+</center>
+
+# (Quick) Intro to Quarto
+
+## What is Quarto?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+Quarto® is an
+
+::: {.fragment .semi-fade-out}
+open-source
+:::
+
+::: {.fragment .semi-fade-out}
+technical
+:::
+
+::: {.fragment .semi-fade-out}
+content creation system.
+:::
+
+:::
+
+::: {.column width="60%"}
+
+::: incremental
+
+* Create documents in your favorite editor
+* Create dynamic content with Python, R, Julia, and Observable
+* Publish technical content in HTML, PDF, MS Word, and more
+* Share technical content by publishing to Posit Connect, Confluence, or other publishing systems
+
+:::
+
+:::
+
+::::
+
+## Why Quarto?
+
+::: incremental
+
+* Multilingual and independent of computational systems
+* Shared expression for core features
+* Enable “single-source publishing” — create Word, PDFs, HTML, etc. from one source
+
+:::
+
+## How does Quarto work?
+
+::: {.r-stack}
+
+````{.yaml code-line-numbers=|1-6|8,10|12|13-16|18-31}
+---
+title: "ggplot2 demo"
+format: 
+  html:
+    code-fold: true
+---
+
+## Meet Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{{r}}
+#| label: plot-penguins
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(palmerpenguins)
+
+ggplot(penguins, 
+       aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
+```
+````
+
+![](images/knitr-plot.png){.fragment fig-align="center" width=50%}
+
+:::
+
+## What can you build with Quarto? {.smaller}
+
+::: panel-tabset
+### Websites
+
+![nbdev.fast.ai](images/website.png){height="400"}
+
+### Books
+
+![Python for Data Analysis, 3E by Wes McKinney](images/book.png){height="400"}
+
+### Blogs
+
+![https://jollydata.blog/](images/blog.png){height="400"}
+
+### Presentations
+
+![The untold story of palmerpenguins by Dr. Kristen Gorman, Dr. Allison Horst, and<br>Dr. Alison Hill](images/presentation.png){height="400"}
+
+### Journals
+
+![Journal of Statistical Software (JSS)](https://user-images.githubusercontent.com/163582/42351114-e5deaa1c-8078-11e8-90de-2aff57bba255.png){height="400"}
+
+### Dashboards
+
+![Dashboard by Mine Çentikaya-Rundel](images/dashboard.png){fig-align="center" width="500"}
+
+:::
+
+## Learn more about Quarto {auto-animate=true}
+
+![Intro to Quarto - Isabella Velásquez](images/quarto-talk1.png){width="500px"}
+
+## Learn more about Quarto {auto-animate=true}
+
+![Building a Website in R - Federica Gazzelloni](images/quarto-talk2.png)
+
+## Learn more about Quarto {auto-animate=true}
+
+![Branded Quarto - Emil Hvitfeldt](images/quarto-talk4.png)
+
+# Quarto Dashboards
+
+## Quarto Dashboards
+
+* A new output format for creating dashboards from notebooks
+
+. . .
+
+* Publish groups of visualizations, tables, text together
+
+. . .
+
+* Released in Quarto 1.4
+
+. . .
+
+::: {.callout-tip}
+
+Run this command in your terminal to see what version of Quarto you are on:
+
+```{.bash filename=Terminal}
+quarto --version
+```
+
+:::
+
+## Quarto Dashboards
+
+Goal is to make it simple to build compelling interactive dashboards using R, Python, Julia, and Observable.
+
+![https://quarto.org/docs/dashboards/examples/](images/dashboard-examples.png){fig-align="center"}
+
+# Dashboard Basics
+
+## Dashboard Basics {auto-animate=true auto-animate-easing="ease-in-out"}
+
+Dashboards are composed of **cards**.
+
+::: {.r-hstack}
+::: {data-id="box1" auto-animate-delay="0" style="background: #508AA8; width: 200px; height: 150px; margin: 10px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #F52A32; width: 200px; height: 150px; margin: 10px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #DC5618; width: 200px; height: 150px; margin: 10px; border: 3px solid #000;"}
+:::
+:::
+
+## Dashboard Basics {auto-animate=true auto-animate-easing="ease-in-out"}
+
+Cards are arranged into rows and columns.
+
+::: {.r-stack}
+::: {data-id="box1" auto-animate-delay="0" style="background: #508AA8; width: 235px; height: 145px; margin-top: 30px; position: absolute; left: 275px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box2" style="background: #F52A32; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 275px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box3" style="background: #DC5618; width: 500px; height: 300px; margin-top: 200px; border: 3px solid #000;"}
+:::
+:::
+
+## Dashboard Basics {auto-animate=true auto-animate-easing="ease-in-out"}
+
+Pages, tabsets, and sidebars allow for more advanced layouts.
+
+::: {.r-stack}
+
+::: {data-id="box1" auto-animate-delay="0" style="background: #508AA8; width: 235px; height: 145px; margin-top: 30px; position: absolute; left: 275px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box2" style="background: #F52A32; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 275px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box3" style="background: #DC5618; width: 500px; height: 300px; margin-top: 200px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box4" auto-animate-delay="0" style="background: #F0BA5A; width: 150px; height: 470px; margin-top: 30px; position: absolute; right: 800px; border: 3px solid #000;"}
+:::
+
+:::
+
+## Start from Scratch {auto-animate=true}
+
+Begin with front matter:
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+````
+
+## Start from Scratch {auto-animate=true}
+
+Add a card:
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+```{{r}}
+plot(mtcars)
+```
+````
+
+## Start from Scratch {auto-animate=true}
+
+Add a card:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+```{{r}}
+plot(mtcars)
+```
+````
+
+:::
+
+::: {.column width="60%"}
+
+![](images/dashboard-example1.png)
+
+:::
+::::
+
+## Start from scratch {auto-animate=true}
+
+Continue adding cards:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+```{{r}}
+plot(mtcars)
+```
+
+```{{r}}
+plot(mtcars$mpg)
+```
+````
+
+:::
+
+
+::: {.column width="60%"}
+![](images/dashboard-example2.png)
+:::
+::::
+
+## Start from Scratch {auto-animate=true}
+
+Add a title to your cards:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example3.png)
+:::
+
+::::
+
+## {auto-animate=true}
+
+![](images/dashboard-example3.png){fig-align="center"}
+
+# Layout Options
+
+## Rows {auto-animate=true}
+
+By default, cards are laid out in rows:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example3.png)
+:::
+
+::::
+
+## Rows {auto-animate=true}
+
+By default, cards are laid out in rows:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example3.png)
+:::
+
+::::
+
+## Columns {auto-animate=true}
+
+We can change it to be columns instead:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: columns
+---
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example4.png)
+:::
+
+::::
+
+## Headings {auto-animate=true}
+
+Alternatively, we can use headings to arrange cards:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=8}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars)
+```
+````
+
+## Headings {auto-animate=true}
+
+Alternatively, we can use headings to arrange cards:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example4.png)
+:::
+
+::::
+
+## Headings {auto-animate=true}
+
+Make another row with content:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=8-10}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+Here is my dashboard:
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example5.png)
+:::
+
+::::
+
+## Headings {auto-animate=true}
+
+Continue adding content:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=24-27}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+Here is my dashboard:
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+
+```{{r}}
+#| title: "Plot 3"
+plot(mtcars$hp)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example6.png)
+:::
+
+::::
+
+## Headings {auto-animate=true}
+
+We can add columns within our rows:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=14,26}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+Here is my dashboard:
+
+## Row
+
+### Column
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars)
+```
+
+### Column
+
+```{{r}}
+#| title: "Plot 3"
+plot(mtcars)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example7.png)
+:::
+
+::::
+
+## Tabsets {auto-animate=true}
+
+Or use tabsets to put content in different tabs:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=12,24}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+Here is my dashboard:
+
+## Row
+
+### Column {.tabset}
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+
+### Column
+
+```{{r}}
+#| title: "Plot 3"
+plot(mtcars$hp)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example8.gif)
+:::
+
+::::
+
+## Tabsets {auto-animate=true}
+
+![](images/dashboard-example8.gif){fig-align="center"}
+
+## Pages {auto-animate=true}
+
+Use a Level 1 heading to create new pages:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=12,24}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## Row
+
+Here is my dashboard:
+
+# Page 1
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+
+# Page 2
+
+```{{r}}
+#| title: "Plot 3"
+plot(mtcars$hp)
+```
+````
+
+:::
+
+::: {.column width="60%"}
+![](images/dashboard-example9.gif)
+:::
+
+::::
+
+## Pages {auto-animate=true}
+
+Use a Level 1 heading to create new pages:
+
+![](images/dashboard-example9.gif){fig-align="center"}
+
+## Navigation {auto-animate=true}
+
+Add a logo and buttons to your navigation bar:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=|5|6-9}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    logo: images/car.png
+    nav-buttons:
+      - reddit
+      - icon: gitlab
+        href: https://gitlab.com/
+---
+
+## Row
+
+Here is my dashboard:
+
+# Page 1
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+
+# Page 2
+
+```{{r}}
+#| title: "Plot 3"
+plot(mtcars$hp)
+```
+````
+
+## Navigation {auto-animate=true}
+
+Add a logo and buttons to your navigation bar:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    logo: images/car.png
+    nav-buttons:
+      - reddit
+      - icon: gitlab
+        href: https://gitlab.com/
+---
+
+## Row
+
+Here is my dashboard:
+
+# Page 1
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+
+# Page 2
+
+```{{r}}
+#| title: "Plot 3"
+plot(mtcars$hp)
+```
+````
+
+:::
+
+::: {.column width="60%"}
+![](images/navbar.png)
+:::
+::::
+
+## Navigation {auto-animate=true}
+
+![](images/navbar.png){fig-align="center"}
+<br>
+See more options: <https://quarto.org/docs/reference/projects/websites.html#navbar>
+
+# Data Display
+
+## Cards
+
+::: {.r-fit-text}
+
+Cards are the fundamental unit of display within dashboards.
+
+::: {.r-hstack}
+::: {data-id="box1" auto-animate-delay="0" style="background: #508AA8; width: 200px; height: 150px; margin: 10px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #F52A32; width: 200px; height: 150px; margin: 10px; border: 3px solid #000;"}
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #DC5618; width: 200px; height: 150px; margin: 10px; border: 3px solid #000;"}
+:::
+:::
+
+:::
+
+## Text
+
+Cards can also have arbitrary markdown: 
+
+```markdown
+::: {.card}
+This text will be displayed within a card
+:::
+```
+
+Enclose the both the cell and the content in a .card div to include content alongside the output of a cell:
+
+````{.markdown}
+
+::: {.card}
+```{{r}}
+plot(mtcars)
+```
+
+Above is my plot.
+:::
+````
+
+## Text
+
+Content that is included at the top of a dashboard is considered leading content, and will be included as is with no card styling:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=8}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+Here is my dashboard:
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Plots
+
+Both interactive JavaScript-based plots and standard raster based plots are supported.
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=8-11}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Tables {auto-animate=true}
+
+Produce tabular output within cards:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=8-11}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+```{{r}}
+#| title: "Table 1"
+mtcars |> tibble::as_tibble() |> dplyr::filter(cyl == 6)  |> gt::gt()
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Tables {auto-animate=true}
+
+Produce tabular output within cards:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+```{{r}}
+#| title: "Table 1"
+mtcars |> tibble::as_tibble() |> dplyr::filter(cyl == 6)  |> gt::gt()
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+:::
+
+::: {.column width="60%"}
+![](images/tables.png)
+:::
+::::
+
+## Value Boxes {auto-animate=true}
+
+Value boxes display simple values within a dashboard:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=8-12|14-24}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+::: {.valuebox color="#F52A32"}
+Last updated:
+
+`{r} Sys.Date()`
+:::
+
+```{{r}}
+#| content: valuebox
+#| title: "Spam per day"
+n <- mtcars |> tibble::as_tibble() |> dplyr::count() |> dplyr::pull(n)
+
+list(
+  icon = "trash",
+  color = "#F52A32",
+  value = n
+)
+```
+
+## Row
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Value Boxes {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+::: {.valuebox color="#F52A32"}
+Last updated:
+
+`{r} Sys.Date()`
+:::
+
+```{{r}}
+#| content: valuebox
+#| title: "Spam per day"
+n <- mtcars |> tibble::as_tibble() |> dplyr::count() |> dplyr::pull(n)
+
+list(
+  icon = "trash",
+  color = "#F52A32",
+  value = n
+)
+```
+
+## Row
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/value-boxes.png)
+:::
+
+::::
+
+## Value Boxes {auto-animate=true}
+
+![](images/value-boxes.png){fig-align="center"}
+
+# Input Layout
+
+## Input Layout
+
+There are several ways to layout inputs within interactive dashboards:
+
+::: incremental
+
+* Sidebars provide a collapsible vertical panel for inputs.
+
+* Toolbars provide a horizontal panel for inputs.
+
+* Card Inputs provide a panel for card-specific inputs.
+
+:::
+
+## Input Layout
+
+There are several ways to layout inputs within interactive dashboards:
+
+* [Sidebars provide a collapsible vertical panel for inputs.]{style="color: red; background-color: #F5EACE;"}
+
+* Toolbars provide a horizontal panel for inputs.
+
+* Card Inputs provide a panel for card-specific inputs.
+
+## Sidebars {auto-animate=true}
+
+To include a sidebar, add the .sidebar class to a Level 2 heading:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=6|6-8|10-12,32}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## {.sidebar}
+
+Sidebar text here!
+
+## Column
+
+### Row
+
+::: {.valuebox color="#F52A32"}
+Last updated:
+
+`{r} Sys.Date()`
+:::
+
+```{{r}}
+#| content: valuebox
+#| title: "Spam per day"
+n <- mtcars |> tibble::as_tibble() |> dplyr::count() |> dplyr::pull(n)
+
+list(
+  icon = "trash",
+  color = "#F52A32",
+  value = n
+)
+```
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Sidebars {auto-animate=true}
+
+To include a sidebar, add the .sidebar class to a Level 2 heading:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## {.sidebar}
+
+Sidebar text here!
+
+## Column
+
+### Row
+
+::: {.valuebox color="#F52A32"}
+Last updated:
+
+`{r} Sys.Date()`
+:::
+
+```{{r}}
+#| content: valuebox
+#| title: "Spam per day"
+n <- mtcars |> tibble::as_tibble() |> dplyr::count() |> dplyr::pull(n)
+
+list(
+  icon = "trash",
+  color = "#F52A32",
+  value = n
+)
+```
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+:::
+
+::: {.column width="60%"}
+![](images/sidebar.png)
+:::
+::::
+
+# Interactivity
+
+## Quarto or Shiny?
+
+Why not both?
+
+![](images/quartoorshiny.png)
+
+## Shiny
+
+::: incremental
+* The Shiny package provides an easy way to build web applications with R.
+* Quarto dashboards can include embedded Shiny components (e.g. a plot with sliders that control its inputs).
+:::
+
+## {background-image="images/interactivity-options.png"}
+
+## Non-interactive dashboard {auto-animate=true}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=|8}
+---
+title: "Non-interactive Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## {.sidebar}
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Non-interactive dashboard {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=|20}
+---
+title: "Non-interactive Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+---
+
+## {.sidebar}
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+:::
+
+::: {.column width="60%"}
+![](images/noninteractive-dashboard.png)
+:::
+
+::::
+
+## Add Interactive Components {auto-animate=true}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=|6|9-12|16-22|32-35|37-44}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+server: shiny
+---
+
+```{{r}}
+#| context: setup
+library(ggplot2)
+```
+
+## {.sidebar}
+
+```{{r}}
+selectInput(
+    "variableChoice",
+    "Choose a variable:",
+    choices = names(mtcars)
+  )
+```
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plotOutput('variablePlot')
+```
+
+```{{r}}
+#| context: server
+
+output$variablePlot <- renderPlot({
+  yVar <- mtcars[[input$variableChoice]]
+  plot(mtcars$index, yVar)
+})
+```
+````
+
+## Add Interactive Components {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd"}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+server: shiny
+---
+
+```{{r}}
+#| context: setup
+library(ggplot2)
+```
+
+## {.sidebar}
+
+```{{r}}
+selectInput(
+    "variableChoice",
+    "Choose a variable:",
+    choices = names(mtcars)
+  )
+```
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plotOutput('variablePlot')
+```
+
+```{{r}}
+#| context: server
+
+output$variablePlot <- renderPlot({
+  yVar <- mtcars[[input$variableChoice]]
+  plot(mtcars$index, yVar)
+})
+```
+````
+
+:::
+
+::: {.column width="60%"}
+![](images/shiny-example.png)
+:::
+
+::::
+
+## Add Interactive Components {auto-animate=true}
+
+![](images/shiny-example.gif){fig-align="center"}
+
+# Theming
+
+## Bootswatch Themes {auto-animate=true}
+
+Quarto includes 25 themes from the Bootswatch project:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=5}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    theme: united
+server: shiny
+---
+
+```{{r}}
+#| context: setup
+library(ggplot2)
+```
+
+## {.sidebar}
+
+```{{r}}
+selectInput(
+    "variableChoice",
+    "Choose a variable:",
+    choices = names(mtcars)
+  )
+```
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plotOutput('variablePlot')
+```
+
+```{{r}}
+#| context: server
+
+output$variablePlot <- renderPlot({
+  yVar <- mtcars[[input$variableChoice]]
+  plot(mtcars$index, yVar)
+})
+```
+````
+
+## Bootswatch Themes {auto-animate=true}
+
+Quarto includes 25 themes from the Bootswatch project:
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=5}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    theme: united
+server: shiny
+---
+
+```{{r}}
+#| context: setup
+library(ggplot2)
+```
+
+## {.sidebar}
+
+```{{r}}
+selectInput(
+    "variableChoice",
+    "Choose a variable:",
+    choices = names(mtcars)
+  )
+```
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plotOutput('variablePlot')
+```
+
+```{{r}}
+#| context: server
+
+output$variablePlot <- renderPlot({
+  yVar <- mtcars[[input$variableChoice]]
+  plot(mtcars$index, yVar)
+})
+```
+````
+
+:::
+
+::: {.column width="60%"}
+![](images/united.png)
+:::
+
+::::
+
+## Bootswatch Themes {auto-animate=true}
+
+![](images/united.png)
+
+## Custom Themes {auto-animate=true}
+
+Create an entirely custom theme:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=5}
+---
+title: "My first Quarto dashboard"
+format: 
+  dashboard:
+    theme: style.scss
+server: shiny
+---
+
+```{{r}}
+#| context: setup
+library(ggplot2)
+```
+
+## {.sidebar}
+
+```{{r}}
+selectInput(
+    "variableChoice",
+    "Choose a variable:",
+    choices = names(mtcars)
+  )
+```
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{{r}}
+#| title: "Plot 2"
+plotOutput('variablePlot')
+```
+
+```{{r}}
+#| context: server
+
+output$variablePlot <- renderPlot({
+  yVar <- mtcars[[input$variableChoice]]
+  plot(mtcars$index, yVar)
+})
+```
+````
+
+## Custom Themes
+
+````{.css filename="style.scss"}
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+
+$font-family-sans-serif: "Baumans";
+$body-bg: #F2E2C5;
+$body-color: #21409A;
+$code-color: #5f5f5f;
+$input-bg: #F2E2C5;
+$navbar-bg: #A6290D;
+$h2-font-size:  1.6rem !default;
+$headings-font-weight:  500 !default;
+
+/*-- scss:rules --*/
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+}
+````
+
+## Custom Themes
+
+![](images/custom.png){fig-align="center"}
+
+# Deployment
+
+## Deployment Types
+
+Dashboards are typically just static HTML pages so can be deployed to any web server or web host.
+
+::: incremental
+
+* **Static:** Rendered a single time (e.g. when underlying data won’t ever change)
+* **Scheduled:** Rendered on a schedule (e.g. via cron job) to accommodate changing data.
+* **Parameterized:** Variations of static or scheduled dashboards based on parameters.
+* **Interactive:** Fully interactive dashboard using Shiny (requires a server for deployment).
+
+:::
+
+## Interactive Server Options
+
+::: columns
+::: {.column width="50%"}
+#### Cloud
+
+-   [Posit Connect Cloud](https://connect.posit.cloud/)
+-   [shinyapps.io](https://shiny.posit.co/py/docs/deploy.html#deploy-to-shinyapps.io-cloud-hosting)
+-   [Hugging Face](https://huggingface.co/docs/hub/spaces-sdks-docker-shiny)
+-   [Roll your own](https://shiny.posit.co/py/docs/deploy.html#other-hosting-options)
+:::
+
+::: {.column width="50%"}
+#### On-Prem
+
+-   [Shiny Server](https://shiny.posit.co/py/docs/deploy.html#deploy-to-shiny-server-open-source) (open source)
+-   [Posit Connect](https://shiny.posit.co/py/docs/deploy.html#deploy-to-posit-connect-commercial) (commercial)
+-   [Roll your own](https://shiny.posit.co/py/docs/deploy.html#other-hosting-options)
+:::
+:::
+
+# Wrap Up
+
+## Templates
+
+I added a folder of templates for different dashboard layouts in the GitHub repository:
+
+![](images/template.png){fig-align="center"}
+
+## Thank you!
+
+![](images/intro.png){fig-align="center" height="300"}
+
+<center>
+{{< fa brands twitter size=1.4xl >}} [ivelasq3](https://x.com/ivelasq3) | {{< fa brands linkedin size=1.4xl >}} [ivelasq](https://www.linkedin.com/in/ivelasq/) | {{< fa brands github size=1.4xl >}} [ivelasq](https://github.com/ivelasq/) | {{< fa browser size=1.4xl >}} [ivelasq.rbind.io](https://ivelasq.rbind.io/)
+</center>

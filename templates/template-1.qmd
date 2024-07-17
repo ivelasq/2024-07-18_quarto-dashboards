@@ -1,0 +1,44 @@
+---
+title: "Template 1"
+subtitle: "Text, value boxes, and 2 cards"
+logo: logo.png
+format: 
+  dashboard:
+    theme: united
+---
+
+## Row
+
+Text here
+
+## Row
+
+```{r}
+#| content: valuebox
+#| title: "Value box 1"
+1
+```
+
+
+```{r}
+#| content: valuebox
+#| title: "Value box 2"
+2
+```
+
+```{r}
+#| content: valuebox
+#| title: "Value box 3"
+3
+```
+
+## Row
+
+### Column {width=75%}
+
+![](blank-wide.jpg)
+
+### Column {width=25%}
+
+![](blank-long.jpg)
+

@@ -1,0 +1,17 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+
+$font-family-sans-serif: "Baumans";
+$body-bg: #F2E2C5;
+$body-color: #21409A;
+$code-color: #5f5f5f;
+$input-bg: #F2E2C5;
+$navbar-bg: #A6290D;
+$h2-font-size:  1.6rem !default;
+$headings-font-weight:  500 !default;
+
+/*-- scss:rules --*/
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
+}
