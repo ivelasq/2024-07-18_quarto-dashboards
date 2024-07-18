@@ -1,0 +1,24 @@
+---
+title: "Template 3"
+subtitle: "Sidebar and two plots"
+logo: logo.png
+format: 
+  dashboard:
+    theme: simplex
+    nav-buttons: [github]
+---
+
+## {.sidebar}
+
+Text here
+
+## Content
+
+```{r}
+knitr::include_graphics("blank-wide.jpg")
+```
+
+
+```{r}
+knitr::include_graphics("blank-wide.jpg")
+```
