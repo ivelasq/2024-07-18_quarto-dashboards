@@ -8,7 +8,7 @@
 ### Quarto
 
 * [Quarto](https://quarto.org/)
-* [Intro to Quarto] by Isabella Velásquez for R-Ladies St. Louis
+* [Intro to Quarto](https://www.youtube.com/watch?v=y6_xMIBKuP4) by Isabella Velásquez for R-Ladies St. Louis
 * [Awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 * [Building a Website in R](https://www.youtube.com/watch?v=ZTyKEmCyYiI) by Federica Gazzelloni for R-Ladies New York
 * [Create Your Data Science Portfolio with Quarto](https://www.youtube.com/watch?v=xtSFXtDf4cM) by Deepsha Menghani for Posit Enterprise Community Meetup

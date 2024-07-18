@@ -148,7 +148,7 @@ ggplot(penguins,
 
 ### Dashboards
 
-![Dashboard by Mine Çentikaya-Rundel](images/dashboard.png){fig-align="center" width="500"}
+![Dashboard by Mine Çentikaya-Rundel](images/dashboard.png){height="400"}
 
 :::
 
@@ -941,7 +941,7 @@ plot(mtcars$mpg)
 ```
 ````
 
-## Plots
+## Plots {auto-animate=true}
 
 Both interactive JavaScript-based plots and standard raster based plots are supported.
 
@@ -955,6 +955,31 @@ format: dashboard
 
 ```{{r}}
 #| title: "Plot 1"
+plot(mtcars)
+```
+
+```{{r}}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
+````
+
+## Plots {auto-animate=true}
+
+Size plots in static dashboards using code chunk options:
+
+````{.yaml filename="dashboard.qmd" code-line-numbers=10-11}
+---
+title: "My first Quarto dashboard"
+format: dashboard
+---
+
+## Row
+
+```{{r}}
+#| title: "Plot 1"
+#| fig-width: 5
+#| fig-height: 4
 plot(mtcars)
 ```
 
@@ -1036,7 +1061,7 @@ format: dashboard
 ::: {.valuebox color="#F52A32"}
 Last updated:
 
-`{r} Sys.Date()`
+`{{r}} Sys.Date()`
 :::
 
 ```{{r}}
@@ -1110,7 +1135,7 @@ plot(mtcars$mpg)
 
 ![](images/value-boxes.png){fig-align="center"}
 
-# Input Layout
+# Inputs
 
 ## Input Layout
 
@@ -1157,7 +1182,7 @@ Sidebar text here!
 ::: {.valuebox color="#F52A32"}
 Last updated:
 
-`{r} Sys.Date()`
+`{{r}} Sys.Date()`
 :::
 
 ```{{r}}
@@ -1237,18 +1262,18 @@ plot(mtcars$mpg)
 
 # Interactivity
 
-## Quarto or Shiny?
-
-Why not both?
-
-![](images/quartoorshiny.png)
-
 ## Shiny
 
 ::: incremental
 * The Shiny package provides an easy way to build web applications with R.
-* Quarto dashboards can include embedded Shiny components (e.g. a plot with sliders that control its inputs).
+* Quarto dashboards can include embedded Shiny components (e.g. a plot with sliders that control its inputs) to add interactivity.
 :::
+
+## Quarto or Shiny?
+
+Why not both?
+
+![https://forum.posit.co/t/quarto-dashboards-vs-shiny/178402](images/quartoorshiny.png)
 
 ## {background-image="images/interactivity-options.png"}
 
@@ -1351,7 +1376,7 @@ Here is my dashboard:
 
 ```{{r}}
 #| title: "Plot 2"
-plotOutput('variablePlot')
+plotOutput("variablePlot")
 ```
 
 ```{{r}}
@@ -1404,7 +1429,7 @@ Here is my dashboard:
 
 ```{{r}}
 #| title: "Plot 2"
-plotOutput('variablePlot')
+plotOutput("variablePlot")
 ```
 
 ```{{r}}
@@ -1469,7 +1494,7 @@ Here is my dashboard:
 
 ```{{r}}
 #| title: "Plot 2"
-plotOutput('variablePlot')
+plotOutput("variablePlot")
 ```
 
 ```{{r}}
@@ -1524,7 +1549,7 @@ Here is my dashboard:
 
 ```{{r}}
 #| title: "Plot 2"
-plotOutput('variablePlot')
+plotOutput("variablePlot")
 ```
 
 ```{{r}}
@@ -1587,7 +1612,7 @@ Here is my dashboard:
 
 ```{{r}}
 #| title: "Plot 2"
-plotOutput('variablePlot')
+plotOutput("variablePlot")
 ```
 
 ```{{r}}
@@ -1617,6 +1642,7 @@ $h2-font-size:  1.6rem !default;
 $headings-font-weight:  500 !default;
 
 /*-- scss:rules --*/
+
 h1, h2, h3, h4, h5, h6 {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
 }
