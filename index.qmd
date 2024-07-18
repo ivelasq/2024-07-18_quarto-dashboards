@@ -1664,10 +1664,16 @@ Dashboards are typically just static HTML pages so can be deployed to any web se
 * **Scheduled:** Rendered on a schedule (e.g. via cron job) to accommodate changing data.
 * **Parameterized:** Variations of static or scheduled dashboards based on parameters.
 * **Interactive:** Fully interactive dashboard using Shiny (requires a server for deployment).
-
 :::
 
-## Interactive Server Options
+## Static Deployment Options
+
+* [Posit Connect Cloud](https://connect.posit.cloud/)
+* [Quarto Pub](https://quarto.org/docs/publishing/quarto-pub.html)
+* [Posit Connect](https://quarto.org/docs/publishing/rstudio-connect.html)
+* [Confluence](https://quarto.org/docs/publishing/confluence.html)
+
+## Interactive Deployment Options
 
 ::: columns
 ::: {.column width="50%"}
