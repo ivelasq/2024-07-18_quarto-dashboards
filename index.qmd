@@ -674,7 +674,7 @@ Or use tabsets to put content in different tabs:
 
 ::: {.column width="40%"}
 
-````{.yaml filename="dashboard.qmd" code-line-numbers=12,24}
+````{.yaml filename="dashboard.qmd" code-line-numbers=14}
 ---
 title: "My first Quarto dashboard"
 format: 
@@ -709,7 +709,7 @@ plot(mtcars$hp)
 ````
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%" .fragment}
 ![](images/dashboard-example8.gif)
 :::
 
@@ -786,7 +786,7 @@ format:
     nav-buttons:
       - reddit
       - icon: gitlab
-        href: https://gitlab.com/
+        href: https://gitlab.com/ivelasq
 ---
 
 ## Row

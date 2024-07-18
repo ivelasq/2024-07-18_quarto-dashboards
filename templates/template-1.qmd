@@ -4,7 +4,7 @@ subtitle: "Text, value boxes, and 2 cards"
 logo: logo.png
 format: 
   dashboard:
-    theme: united
+    theme: simplex
 ---
 
 ## Row

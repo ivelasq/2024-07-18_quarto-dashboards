@@ -5,3 +5,4 @@
 
 *.html
 /index_files/
+templates/*
