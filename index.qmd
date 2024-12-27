@@ -1230,7 +1230,7 @@ Sidebar text here!
 ::: {.valuebox color="#F52A32"}
 Last updated:
 
-`{r} Sys.Date()`
+`` `{r} Sys.Date()` ``
 :::
 
 ```{{r}}

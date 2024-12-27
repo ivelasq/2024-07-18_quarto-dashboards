@@ -1,0 +1,22 @@
+---
+title: "Non-interactive Quarto dashboard"
+format: 
+  dashboard:
+    orientation: rows
+    embed-resources: true
+---
+
+## {.sidebar}
+
+## Column
+
+### Row
+
+Here is my dashboard:
+
+### Row
+
+```{r}
+#| title: "Plot 2"
+plot(mtcars$mpg)
+```
